@@ -3,17 +3,53 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Ferramentas Syonet</title>
+
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<style>
+		h2 {
+			position: absolute;
+			left: 13px;
+			top: 11px;
+		}
+
+		#lista {
+			position: absolute;
+			left: 13px;
+			top: 100px;
+			width: 300px;
+		}
+
+		#stage {
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+
+		#app {
+			position: absolute;
+			bottom: 23px;
+			top: 13px;
+			left: 334px;
+			right: 13px;
+		}
+	</style>
 </head>
-<body class="container">
+<body>
 	
 	<h2>Ferramentas Syonet</h2>
 	<br>
 
-	<div class="list-group col-md-6">
-		<a class="list-group-item" href="ConversorSemana.html">Conversor de Dias da Semana</a>
-		<a class="list-group-item" href="http://joaoscotto.github.io/ConversorData/">Conversor de Data</a>
+	<div class="list-group" id="lista">
+		<a class="list-group-item" href="ConversorSemana.html" target="stage">Conversor de Dias da Semana</a>
+		<a class="list-group-item" href="http://joaoscotto.github.io/ConversorData/" target="stage">Conversor de Data</a>
+	</div>
+
+	<br>
+
+	<div id="app">
+		<iframe id="stage"></iframe>
 	</div>
 
 </body>
