@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Dias da Semana</title>
+</head>
+<body>
+	<h2>Conversor de Dias da Semana</h2>
+	<p>Os dias da semana são comumente salvos como bitmask, ou seja, uma sequência de bits<br>
+	   representando os dias da semana. No final esse bitmask é convertido em inteiro.</p>
+	<p>Seg e Ter = 0000110 = 6<br>
+	   Dom = 0000001 = 1<br>
+	   Sab = 1000000 = 64</p>
+
+	<hr>
+
+	<input type="text" id="bitmask" size="3" autofocus title="Bitmask (inteiro)" onblur="adjustBitmask()">
+
+	&nbsp;&nbsp;&nbsp;
+	<button onclick="updateBitmask()" title="Gera o bitmask">&lt;&lt;</button>
+	<button onclick="updateDiasSemana()" title="Traduz o bitmask">&gt;&gt;</button>
+	&nbsp;&nbsp;&nbsp;
+
+	<input type="checkbox" id="domingo">Dom&nbsp;&nbsp;
+	<input type="checkbox" id="segunda">Seg&nbsp;&nbsp;
+	<input type="checkbox" id="terca">Ter&nbsp;&nbsp;
+	<input type="checkbox" id="quarta">Qua&nbsp;&nbsp;
+	<input type="checkbox" id="quinta">Qui&nbsp;&nbsp;
+	<input type="checkbox" id="sexta">Sex&nbsp;&nbsp;
+	<input type="checkbox" id="sabado">Sáb&nbsp;&nbsp;
+
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="util/bitmask-util.js"></script>
+	<script src="util/diaSemana-util.js"></script>
+
+	<script>
+		function adjustBitmask() {
+			var bitmask = $( '#bitmask' ).val();
+
+			if ( bitmask < 0 ) {
+				$( '#bitmask' ).val( 0 );
+
+			} else if ( bitmask > 127 ) {
+				$( '#bitmask' ).val( 127 );
+			}
+		}
+
+		function updateDiasSemana() {
+			var bitmask = $( '#bitmask' ).val(),
+				util = DiaSemanaUtil.create( bitmask );
+
+			$( '#domingo' )[ 0 ].checked = util.isDomingo();
+			$( '#segunda' )[ 0 ].checked = util.isSegunda();
+			$( '#terca' )[ 0 ].checked = util.isTerca();
+			$( '#quarta' )[ 0 ].checked = util.isQuarta();
+			$( '#quinta' )[ 0 ].checked = util.isQuinta();
+			$( '#sexta' )[ 0 ].checked = util.isSexta();
+			$( '#sabado' )[ 0 ].checked = util.isSabado();
+		}
+
+		function updateBitmask() {
+			var util = DiaSemanaUtil.create();
+
+			util.setDomingo( $( '#domingo' ).is( ':checked' ) );
+			util.setSegunda( $( '#segunda' ).is( ':checked' ) );
+			util.setTerca( $( '#terca' ).is( ':checked' ) );
+			util.setQuarta( $( '#quarta' ).is( ':checked' ) );
+			util.setQuinta( $( '#quinta' ).is( ':checked' ) );
+			util.setSexta( $( '#sexta' ).is( ':checked' ) );
+			util.setSabado( $( '#sabado' ).is( ':checked' ) );	
+
+			$( '#bitmask' ).val( util.getValue() );
+		}
+	</script>
+</body>
+</html>
