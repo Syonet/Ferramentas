@@ -1,0 +1,13 @@
+#stage {
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+#app {
+	position: absolute;
+	bottom: 23px;
+	top: 100px;
+	left: 1px;
+	right: 13px;
+}
