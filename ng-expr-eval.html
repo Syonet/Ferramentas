@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title> Avaliador de Expressões </title>
+	</head>
+
+	<link rel="stylesheet" href="http://joaoscotto.github.io/ConversorData/css/bootstrap.light.css" />
+
+	<body style="padding-top: 15px;" ng-app="expressionExample">
+		<div class="container" ng-controller="ExampleController" class="expressions">
+			<span>
+				<h2> Avaliador de Expressões para Angular.js </h2>
+			</span>
+			<form class="form-horizontal well">
+				<div class="control-group">
+					<label class="control-label" for="mask">
+						Expressão:
+					</label>
+
+					<div class="controls">
+            <input type='text' ng-model="expr" class="input-xlarge" />
+				    </div>
+				</div>
+
+				<div class="form-actions" style="text-align: right">
+					<button type="button" class="btn btn-primary" ng-click="addExp(expr)">
+						Avaliar
+					</button>
+				</div>
+			</form>
+			<div class="alert alert-info" style="height: 155px;">
+				<div id="result" style="height: 150px; overflow: auto;">
+          <ul>
+           <li ng-repeat="expr in exprs track by $index">
+             [ <a href="" ng-click="removeExp($index)">X</a> ]
+             <tt>{{expr}}</tt> => <span ng-bind="$parent.$eval(expr)"></span>
+            </li>
+          </ul>
+				</div>
+			</div>
+		</div>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/ng-expr-eval.js"></script>
+	</body>
+</html>
