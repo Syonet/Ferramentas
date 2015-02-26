@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="../../favicon.ico">
+	<title> Visualizador Layout </title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+		.container {
+		  margin-top: 50px;
+		  margin-bottom: 30px;
+		}
+
+		.required {
+		  color: red;
+		}
+
+		#file, #config {
+		  width: 100%;
+		}
+
+		.generateFile, .process {
+		  float: right;
+		}
+
+		.container-process {
+		  position: relative;
+		  padding-top: 10px;
+		  padding-bottom: 30px;
+		}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div>
+			<h3> Visualizador Layout CRM </h3>
+			<textarea id="config" rows="4"></textarea>
+			<div class="container-process">
+				<button type="button" class="btn btn-primary process">
+					Criar Campos
+				</button> 
+			</div>
+			<hr>
+		</div>
+		<div class="row">
+			<form>
+			</form>
+		</div>
+		<hr>
+		<div>
+			<div class="container-process">
+				<button type="button" class="btn btn-primary generateFile">
+					Gerar Arquivo
+				</button>
+				<br>
+			</div>
+			<textarea id="file" rows="4"></textarea>
+			<div>
+				<a href="#" id="restore"> Restaurar </a>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/integracao.js"></script>
+</body>
+</html>
